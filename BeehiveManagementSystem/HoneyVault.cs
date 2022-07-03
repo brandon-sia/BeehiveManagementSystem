@@ -9,14 +9,14 @@ namespace BeehiveManagementSystem
     static class HoneyVault
     {
 
-        public const float NECTAR_CONVERSION_RATIO = 0.8f;
+        public const float NECTAR_CONVERSION_RATIO = 0.3f;
         public const float LOW_LEVEL_WARNING = 10f;
 
         private static float honey = 25f;
         private static float nectar = 100f;
 
         public static void CollectNectar(float amount)
-        {
+        { 
             if (amount > 0)
             {
                 nectar += amount;

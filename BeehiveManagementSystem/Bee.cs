@@ -9,7 +9,7 @@ namespace BeehiveManagementSystem
     class Bee
     {
         
-        public string Job { get; private set; }
+        public string Job { get;  }
         public Bee(string job)
         {
             Job = job;
