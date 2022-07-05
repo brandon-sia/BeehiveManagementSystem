@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
-    abstract class Bee
+    abstract class Bee : IWorker
     {
         
         public string Job { get; private set; }
@@ -29,7 +29,8 @@ namespace BeehiveManagementSystem
 
     class Queen : Bee
     {
-        private Bee[] workers = new Bee[0];
+        private IWorker[] workers = new IWorker[0];
+
         private float eggs = 0;
         private float unassignedWorkers = 3;
         private const float EGGS_PER_SHIFT = 0.45f;
@@ -53,7 +54,7 @@ namespace BeehiveManagementSystem
             }
         }
 
-        private void AddWorker(Bee worker)
+        private void AddWorker(IWorker worker)
         {
             if(unassignedWorkers >= 1)
             {
@@ -73,7 +74,7 @@ namespace BeehiveManagementSystem
         private string WorkerStatus(string job)
         {
             int count = 0;
-            foreach(Bee worker in workers)
+            foreach(IWorker worker in workers)
             {
                 if (worker.Job == job) count++;
             }
