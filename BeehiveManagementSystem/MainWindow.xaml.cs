@@ -23,6 +23,10 @@ namespace BeehiveManagementSystem
     {
         private Queen queen = new Queen();
         private DispatcherTimer timer = new DispatcherTimer();
+
+        IDefender[] defenders = new IDefender[2];
+        defenders[0] = new HiveDefender();
+        defenders[1] = new NectarDefender();
         public MainWindow()
         {
             InitializeComponent();
